@@ -59,7 +59,7 @@ canvas.addEventListener("mouseleave", () => {
 // Draw on the canvas
 function draw(x, y) {
   ctx.lineWidth = lineThickness;
-  ctx.lineCap = "round";
+  ctx.lineCap = "square";
   ctx.strokeStyle = currentColor;
 
   ctx.lineTo(x, y);
