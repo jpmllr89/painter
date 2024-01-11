@@ -4,11 +4,32 @@ const ctx = canvas.getContext("2d");
 
 // Default brush color
 let currentColor = "#000";
+let lineThickness = 5;
 
 // Change the brush color using the color picker
 function changeColor() {
   const colorPicker = document.getElementById("colorPicker");
   currentColor = colorPicker.value;
+}
+
+// Open the brush thickness popup
+function openThicknessPopup() {
+  const thicknessPopup = document.getElementById("thicknessPopup");
+  thicknessPopup.style.display = "block";
+}
+
+// Close the brush thickness popup
+function closeThicknessPopup() {
+  const thicknessPopup = document.getElementById("thicknessPopup");
+  thicknessPopup.style.display = "none";
+}
+
+// Change the brush thickness using the slider
+function changeThickness() {
+  const thicknessSlider = document.getElementById("thicknessSlider");
+  lineThickness = thicknessSlider.value;
+  ctx.lineCap = "round"; // Set line cap to round for smoother lines
+  ctx.lineJoin = "round"; // Set line join to round for smoother corners
 }
 
 // Event listeners for mouse movements
@@ -37,7 +58,7 @@ canvas.addEventListener("mouseleave", () => {
 
 // Draw on the canvas
 function draw(x, y) {
-  ctx.lineWidth = 5;
+  ctx.lineWidth = lineThickness;
   ctx.lineCap = "round";
   ctx.strokeStyle = currentColor;
 
