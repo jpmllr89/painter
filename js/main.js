@@ -57,15 +57,26 @@ canvas.addEventListener("mouseleave", () => {
 });
 
 // Draw on the canvas
-function draw(x, y) {
+function draw(x, y, color, lineWidth) {
   ctx.lineWidth = lineThickness;
   ctx.lineCap = "square";
-  ctx.strokeStyle = currentColor;
+  ctx.strokeStyle = color;
 
   ctx.lineTo(x, y);
   ctx.stroke();
   ctx.beginPath();
   ctx.moveTo(x, y);
+
+  // Store the action in history
+  history.push({ x, y, color, lineWidth });
+
+  // Keep only the last 10 actions in history
+  if (history.length > 10) {
+    history.shift();
+  }
+
+  // Reset historyIndex to the latest action
+  historyIndex = history.length - 1;
 }
 
 // History to store drawing actions
@@ -116,27 +127,4 @@ function redrawFromHistory() {
     const action = history[i];
     draw(action.x, action.y, action.color, action.lineWidth);
   }
-}
-
-// Update draw function to store actions in history
-function draw(x, y, color, lineWidth) {
-  ctx.lineWidth = lineWidth;
-  ctx.lineCap = "square";
-  ctx.strokeStyle = color;
-
-  ctx.lineTo(x, y);
-  ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(x, y);
-
-  // Store the action in history
-  history.push({ x, y, color, lineWidth });
-
-  // Keep only the last 10 actions in history
-  if (history.length > 10) {
-    history.shift();
-  }
-
-  // Reset historyIndex to the latest action
-  historyIndex = history.length - 1;
 }
