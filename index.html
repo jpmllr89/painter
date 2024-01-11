@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>paint</title>
-    <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Drawing App</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Content goes here -->
-    <script src='js/main.js'></script>
+    <canvas id="drawingCanvas" width="800" height="600"></canvas>
+    <div id="colorPanel">
+        <div class="colorSquare" style="background-color: #000" onclick="changeColor('#000')"></div>
+        <div class="colorSquare" style="background-color: #ff0000" onclick="changeColor('#ff0000')"></div>
+        <div class="colorSquare" style="background-color: #00ff00" onclick="changeColor('#00ff00')"></div>
+        <div class="colorSquare" style="background-color: #0000ff" onclick="changeColor('#0000ff')"></div>
+    </div>
+    <script src="js/main.js"></script>
 </body>
 </html>

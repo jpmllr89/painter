@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+canvas {
+  border: 1px solid #ccc;
+}
+
+#colorPanel {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.colorSquare {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border: 1px solid #999;
+}
