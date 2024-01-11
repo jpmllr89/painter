@@ -37,12 +37,22 @@ let isDrawing = false;
 
 canvas.addEventListener("mousedown", (e) => {
   isDrawing = true;
-  draw(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+  draw(
+    e.clientX - canvas.offsetLeft,
+    e.clientY - canvas.offsetTop,
+    currentColor,
+    lineThickness
+  );
 });
 
 canvas.addEventListener("mousemove", (e) => {
   if (isDrawing) {
-    draw(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+    draw(
+      e.clientX - canvas.offsetLeft,
+      e.clientY - canvas.offsetTop,
+      currentColor,
+      lineThickness
+    );
   }
 });
 
@@ -107,7 +117,7 @@ function showHistory() {
   for (let i = history.length - 1; i >= 0; i--) {
     const action = history[i];
     const button = document.createElement("button");
-    button.textContent = `Action ${i + 1}`;
+    button.textContent = `Action: ${action.x}, ${action.y}, ${action.color}, ${action.lineWidth}`;
     button.addEventListener("click", () => applyHistoryAction(i));
     historyList.appendChild(button);
   }
