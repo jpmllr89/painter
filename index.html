@@ -9,10 +9,7 @@
 <body>
     <canvas id="drawingCanvas" width="800" height="600"></canvas>
     <div id="colorPanel">
-        <div class="colorSquare" style="background-color: #000" onclick="changeColor('#000')"></div>
-        <div class="colorSquare" style="background-color: #ff0000" onclick="changeColor('#ff0000')"></div>
-        <div class="colorSquare" style="background-color: #00ff00" onclick="changeColor('#00ff00')"></div>
-        <div class="colorSquare" style="background-color: #0000ff" onclick="changeColor('#0000ff')"></div>
+        <input type="color" id="colorPicker" onchange="changeColor()">
     </div>
     <script src="js/main.js"></script>
 </body>

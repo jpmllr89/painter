@@ -5,9 +5,10 @@ const ctx = canvas.getContext("2d");
 // Default brush color
 let currentColor = "#000";
 
-// Change the brush color
-function changeColor(color) {
-  currentColor = color;
+// Change the brush color using the color picker
+function changeColor() {
+  const colorPicker = document.getElementById("colorPicker");
+  currentColor = colorPicker.value;
 }
 
 // Event listeners for mouse movements
